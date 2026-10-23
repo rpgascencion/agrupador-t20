@@ -1,0 +1,48 @@
+{
+  "id": "agrupador-t20",
+  "title": "Agrupador de Magias e Poderes (T20)",
+  "description": "Módulo unificado que adiciona agrupamento em pastas customizáveis (com cor e drag-and-drop) para Magias e Poderes no sistema Tormenta20, mantendo a organização padrão do sistema (por Círculo, no caso das magias) dentro de cada pasta. Junta os módulos 'Agrupador de Magias' e 'Agrupamento de Poderes' em um só, com cores compatíveis com o tema t20-hayd-ui.",
+  "authors": [
+    {
+      "name": "ASCUNCAO"
+    },
+    {
+      "name": "Gabriel Arcasa"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "tormenta20",
+        "type": "system"
+      }
+    ]
+  },
+  "version": "1.0.1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "13"
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "./styles/spell-folders.css",
+    "./styles/power-folders.css"
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "url": "https://github.com/rpgascencion/agrupador-t20",
+  "manifest": "https://raw.githubusercontent.com/rpgascencion/agrupador-t20/main/module.json",
+  "download": "https://github.com/rpgascencion/agrupador-t20/releases/latest/download/agrupador-t20.zip"
+}

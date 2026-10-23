@@ -1,0 +1,659 @@
+
+.spell-folders-container {
+    padding: 0 5px;
+    margin: 5px 0;
+    background-color: var(--color-faint, #c9c7b8);
+    border-radius: 10px;
+    font-size: var(--font-size-14, 14px);
+    list-style: none;
+}
+
+
+.spell-folders-container .item-header {
+    line-height: 24px;
+    font-weight: bold;
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+}
+
+.spell-folders-container .item-header .item-name {
+    flex: 2;
+}
+
+.spell-folders-container .item-header .item-activation {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+.spell-folders-container .item-header .item-controls {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+}
+
+.tormenta20.sheet.actor .item-list .item-controls {
+    font-size: 12px;
+    text-align: right;
+    flex: 1;
+}
+
+.spell-folders-container .item-header .item-controls a {
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    font-size: 12px;
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    flex: 0 0 0;
+}
+
+.spell-folders-container .item-header .item-controls a:hover {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos específicos para botões do módulo */
+.spell-folder-controls {
+    flex: 0 0 auto !important;
+    min-width: 80px;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.spell-folder-controls a {
+    padding: 2px 6px !important;
+    margin: 0 2px;
+}
+
+.toggle-spell-folders {
+    color: #5c7cfa !important; /* Azul mais suave */
+}
+
+.toggle-spell-folders:hover {
+    color: #0056b3 !important;
+}
+
+.spell-folder-create {
+    color: #28a745 !important;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 2px 4px !important;
+}
+
+.toggle-spell-folders {
+    margin-right: 5px;
+    padding: 2px 4px !important;
+}
+
+/* ========================================================================
+   PASTAS DE PODERES - LI elements
+   ======================================================================== */
+.spell-folders-container .spell-folder {
+    margin-bottom: 2px;
+    list-style: none;
+}
+
+/* Header das Pastas - Estilo consistente com o sistema */
+.spell-folders-container .spell-folder .spell-folder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 5px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left: 3px solid var(--color-olive, #4b4a44);
+    border-radius: 3px;
+    margin: 2px 0;
+    min-height: 24px;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.spell-folders-container .spell-folder .spell-folder-header .spell-folder-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    overflow: hidden;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header .spell-folder-title-wrapper .spell-folder-toggle {
+    width: 14px;
+    text-align: center;
+    font-size: 10px;
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    transition: transform 0.2s ease;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header .spell-folder-title-wrapper .spell-folder-name {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header .spell-folder-controls {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header:hover .spell-folder-controls {
+    opacity: 1;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header .spell-folder-controls a {
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    font-size: 11px;
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header .spell-folder-controls a:hover {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Cores personalizadas das pastas */
+.spell-folders-container .spell-folder .spell-folder-header[style*="border-color"] {
+    border-left: 3px solid !important;
+}
+
+.spell-folders-container .spell-folder .spell-folder-header[style*="border-color"] .spell-folder-name {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 0 0 3px 3px;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item {
+    padding: 4px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    list-style: none;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item:last-child {
+    border-bottom: none;
+    padding-bottom: 6px;
+}
+
+/* Nome do item - Mesmo estilo do sistema */
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name .item-image {
+    flex: 0 0 34px;
+    height: 34px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-right: 3px;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name label {
+    flex: 1;
+    margin: 0;
+    font-weight: 400;
+    font-size: var(--font-size-14, 14px);
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+/* Efeito hover no nome (rollable) */
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name.rollable label:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+/* Efeito hover na imagem */
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name.rollable:hover .item-image {
+    background-image: url("/systems/tormenta20/icons/svg/d20-grey.svg") !important;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name .item-image:hover {
+    background-image: url("/systems/tormenta20/icons/svg/d20-black.svg") !important;
+}
+
+/* Ativação do item */
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-activation {
+    flex: 1;
+    font-size: 12px;
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-tan, #666)));
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+/* Controles dos itens - Mesmo estilo do sistema */
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-controls {
+    flex: 0 0 44px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-controls a {
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-controls a:hover {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Pasta vazia */
+.spell-folders-container .spell-folder .spell-folder-contents .spell-folder-empty {
+    padding: 15px;
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--t20a-text-muted, var(--t20dm-text-muted, var(--color-text-dark-secondary, #999)));
+    background-color: rgba(0, 0, 0, 0.02);
+    list-style: none;
+}
+
+/* Pasta recolhida */
+.spell-folders-container .spell-folder.collapsed .spell-folder-contents {
+    display: none;
+}
+
+.spell-folders-container .spell-folder.collapsed .spell-folder-title-wrapper .spell-folder-toggle {
+    transform: rotate(0deg);
+}
+
+/* ========================================================================
+   PODERES NÃO AGRUPADOS - LI element
+   ======================================================================== */
+.spell-folders-container .loose-spells-container {
+    margin-top: 8px;
+    list-style: none;
+}
+
+/* Header dos poderes soltos */
+.spell-folders-container .loose-spells-container .loose-header {
+    display: flex;
+    align-items: center;
+    padding: 4px 5px;
+    background-color: rgba(108, 117, 125, 0.1);
+    border-left: 3px solid var(--color-tan, #6c757d);
+    border-radius: 3px;
+    margin: 2px 0;
+    min-height: 24px;
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+}
+
+/* Conteúdo dos poderes soltos - UL aninhada */
+.spell-folders-container .loose-spells-container .spell-folder-contents {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 0 0 3px 3px;
+}
+
+/* Itens de poder soltos - Mesmo estilo dos itens normais */
+.spell-folders-container .loose-spells-container .spell-item {
+    padding: 4px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    list-style: none;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .loose-spells-container .spell-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.spell-folders-container .loose-spells-container .spell-item:last-child {
+    border-bottom: none;
+    padding-bottom: 6px;
+}
+
+/* Nome e imagem dos poderes soltos */
+.spell-folders-container .loose-spells-container .spell-item .item-name {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-name .item-image {
+    flex: 0 0 34px;
+    height: 34px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-right: 3px;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-name label {
+    flex: 1;
+    margin: 0;
+    font-weight: 400;
+    font-size: var(--font-size-14, 14px);
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+/* Efeito hover em poderes soltos */
+.spell-folders-container .loose-spells-container .spell-item .item-name.rollable label:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-name.rollable:hover .item-image {
+    background-image: url("/systems/tormenta20/icons/svg/d20-grey.svg") !important;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-name .item-image:hover {
+    background-image: url("/systems/tormenta20/icons/svg/d20-black.svg") !important;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-activation {
+    flex: 1;
+    font-size: 12px;
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-tan, #666)));
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-controls {
+    flex: 0 0 44px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-controls a {
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .loose-spells-container .spell-item .item-controls a:hover {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Container vazio */
+.spell-folders-container .loose-spells-container .spell-folder-contents .spell-folder-empty {
+    padding: 15px;
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--t20a-text-muted, var(--t20dm-text-muted, var(--color-text-dark-secondary, #999)));
+    background-color: rgba(0, 0, 0, 0.02);
+    list-style: none;
+}
+
+/* ========================================================================
+   DRAG AND DROP
+   ======================================================================== */
+.spell-folders-container .spell-item {
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container .spell-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing !important;
+    transform: rotate(2deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.spell-folders-container .spell-folder.drag-over {
+    background-color: rgba(255, 102, 0, 0.1);
+    border: 1px dashed #ff6600;
+}
+
+.spell-folders-container .loose-spells-container.drag-over {
+    background-color: rgba(255, 102, 0, 0.1);
+    border: 1px dashed #ff6600;
+}
+
+.drop-indicator {
+    height: 2px;
+    background-color: #ff6600;
+    margin: 0 -5px;
+    border-radius: 1px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* ========================================================================
+   MODO LEGADO (sem pastas) - UL structure
+   ======================================================================== */
+.spell-folders-container ~ .item-list {
+    padding: 0 5px;
+    margin: 5px 0;
+    background-color: var(--color-faint, #c9c7b8);
+    border-radius: 10px;
+    font-size: var(--font-size-14, 14px);
+    list-style: none;
+}
+
+.spell-folders-container ~ .item-list .item-header {
+    line-height: 24px;
+    font-weight: bold;
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+}
+
+.spell-folders-container ~ .item-list .item-header .item-name {
+    flex: 2;
+}
+
+.spell-folders-container ~ .item-list .item-header .item-type {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+.spell-folders-container ~ .item-list .item-header .item-activation {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+.spell-folders-container ~ .item-list .item-header .item-controls {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.spell-folders-container ~ .item-list .item-header .item-controls a {
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    font-size: 12px;
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container ~ .item-list .item-header .item-controls a:hover {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Itens no modo legado */
+.spell-folders-container ~ .item-list .item {
+    padding: 4px 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+    list-style: none;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container ~ .item-list .item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.spell-folders-container ~ .item-list .item:last-child {
+    border-bottom: none;
+    padding-bottom: 6px;
+}
+
+.spell-folders-container ~ .item-list .item .item-name {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.spell-folders-container ~ .item-list .item .item-name .item-image {
+    flex: 0 0 34px;
+    height: 34px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin-right: 3px;
+}
+
+.spell-folders-container ~ .item-list .item .item-name label {
+    flex: 1;
+    margin: 0;
+    font-weight: 400;
+    font-size: var(--font-size-14, 14px);
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.spell-folders-container ~ .item-list .item .item-name.rollable label:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+.spell-folders-container ~ .item-list .item .item-name.rollable:hover .item-image {
+    background-image: url("/systems/tormenta20/icons/svg/d20-grey.svg") !important;
+}
+
+.spell-folders-container ~ .item-list .item .item-name .item-image:hover {
+    background-image: url("/systems/tormenta20/icons/svg/d20-black.svg") !important;
+}
+
+.spell-folders-container ~ .item-list .item .item-type {
+    flex: 1;
+    font-size: 12px;
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-tan, #666)));
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+.spell-folders-container ~ .item-list .item .item-activation {
+    flex: 1;
+    font-size: 12px;
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-tan, #666)));
+    text-align: center;
+    border-right: 1px solid var(--color-faint, #c9c7b8);
+}
+
+.spell-folders-container ~ .item-list .item .item-controls {
+    flex: 0 0 44px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.spell-folders-container ~ .item-list .item .item-controls a {
+    color: var(--t20a-text-secondary, var(--t20dm-text-secondary, var(--color-text-dark-secondary, #666)));
+    padding: 2px;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.spell-folders-container ~ .item-list .item .item-controls a:hover {
+    color: var(--t20a-text-primary, var(--t20dm-text-primary, var(--color-text-dark-primary, #191813)));
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================================================
+   RESPONSIVIDADE
+   ======================================================================== */
+@media (max-width: 768px) {
+    .spell-folders-container .item-header .item-type,
+    .spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-type,
+    .spell-folders-container .loose-spells-container .spell-item .item-type,
+    .spell-folders-container ~ .item-list .item-header .item-type,
+    .spell-folders-container ~ .item-list .item .item-type {
+        display: none;
+    }
+    
+    .spell-folders-container .item-header .item-name,
+    .spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-name,
+    .spell-folders-container .loose-spells-container .spell-item .item-name,
+    .spell-folders-container ~ .item-list .item-header .item-name,
+    .spell-folders-container ~ .item-list .item .item-name {
+        flex: 3;
+    }
+    
+    .spell-folders-container .item-header .item-activation,
+    .spell-folders-container .spell-folder .spell-folder-contents .spell-item .item-activation,
+    .spell-folders-container .loose-spells-container .spell-item .item-activation,
+    .spell-folders-container ~ .item-list .item-header .item-activation,
+    .spell-folders-container ~ .item-list .item .item-activation {
+        flex: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .spell-folders-container .spell-folder .spell-folder-header .spell-folder-controls,
+    .spell-folders-container .item-header .item-controls,
+    .spell-folders-container ~ .item-list .item-header .item-controls {
+        gap: 2px;
+    }
+}

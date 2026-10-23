@@ -1,0 +1,33 @@
+{
+  "MODULOAGRUPAMENTO": {
+    "PowerFolders": "Power Folders",
+    "CreateFolder": "Create Folder",
+    "RenameFolder": "Rename Folder",
+    "DeleteFolder": "Delete Folder",
+    "FolderName": "Folder Name",
+    "FolderColor": "Folder Color",
+    "NoColor": "No color",
+    "CreatePowerFolder": "Create Power Folder",
+    "EditPowerFolder": "Edit Power Folder",
+    "DeletePowerFolder": "Delete Power Folder",
+    "ConfirmDeleteFolder": "Are you sure you want to delete the folder \"{folderName}\"?",
+    "DeleteFolderNote": "Powers within it will not be deleted.",
+    "Create": "Create",
+    "Save": "Save",
+    "Cancel": "Cancel",
+    "Delete": "Delete",
+    "OtherPowers": "Other Powers",
+    "DragItemsToFolder": "Drag items to this folder",
+    "DragToFolder": "Drag to folder",
+    "Move": "Move",
+    "Rename": "Rename",
+    "Exclude": "Delete",
+    "Folder": "Folder",
+    "Add": "Add",
+    "GroupName": "Group Name",
+    "GroupColor": "Group Color (optional)",
+    "GroupColorOptional": "Group Color (optional)",
+    "Name": "Name",
+    "Group": "Group"
+  }
+}

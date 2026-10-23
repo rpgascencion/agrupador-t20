@@ -1,0 +1,121 @@
+{{#if useSpellFolders}}
+<ul class="item-list spell-folders-container">
+	<li class="item item-header flexrow" style="text-align: center; align-items: center;">
+		{{#if isNPC}}
+			<label style="flex: 1;">{{localize 'T20.SpellDC'}} {{system.attributes.cd}}</label>
+		{{else}}
+			<label style="flex: 1;">
+				{{#each system.atributos as |atr key|}}
+				{{#if (eq key ../system.attributes.conjuracao)}}
+				{{localize 'T20.SpellDC'}} {{add ../system.attributes.cd atr.value}} =
+				{{/if}}
+				{{/each}}
+			</label>
+		{{/if}}
+
+		{{#if owner}}
+		<div class="item-controls flexrow" style="flex: 0; display: flex; align-items: center; gap: 4px; white-space: nowrap;">
+			<a class="item-control toggle-spell-folders" title="Desativar Agrupamento">
+				<i class="fas fa-toggle-on"></i>
+			</a>
+			<a class="item-control spell-folder-create" title="Nova Pasta" style="color: #28a745;">
+				<i class="fas fa-folder-plus"></i>
+			</a>
+		</div>
+		{{/if}}
+	</li>
+
+	{{#each actor.spellFolders as |folder|}}
+	<li class="spell-folder" data-folder-id="{{folder.id}}" data-folder-order="{{folder.order}}">
+		<div class="spell-folder-header flexrow" data-folder-id="{{folder.id}}" {{#if folder.color}}style="background-color: {{folder.color}}; border-color: {{folder.color}};"{{/if}}>
+			<div class="spell-folder-title-wrapper" data-action="toggle-spell-folder">
+				<span class="spell-folder-toggle">
+					<i class="fas {{#if folder.collapsed}}fa-chevron-right{{else}}fa-chevron-down{{/if}}"></i>
+				</span>
+				<span class="spell-folder-name" title="{{folder.name}}">{{folder.name}}</span>
+			</div>
+
+			{{#if ../owner}}
+			<div class="spell-folder-controls">
+				<a class="spell-folder-control" data-action="rename-spell-folder" title="Renomear">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a class="spell-folder-control spell-folder-drag-handle" title="Arrastar">
+					<i class="fas fa-grip-vertical"></i>
+				</a>
+				<a class="spell-folder-control" data-action="delete-spell-folder" title="Excluir">
+					<i class="fas fa-trash"></i>
+				</a>
+			</div>
+			{{/if}}
+		</div>
+
+		{{#unless folder.collapsed}}
+		<div class="spell-folder-contents" data-folder-id="{{folder.id}}">
+			{{#each folder.magiasPorCirculo as |circulo i|}}
+			{{#if circulo.spells.length}}
+			<div class="spell-circle-header">{{i}}º {{localize 'T20.SpellCircle'}} ({{circulo.custo}} {{localize 'T20.MP'}})</div>
+			<ul class="item-list" style="margin:0; padding:0;">
+				{{#each circulo.spells as |m|}}
+				<li class="item flexrow spell-item" data-item-id="{{m._id}}" draggable="true">
+					{{#if (and @root.isPreparationCaster (ne m.system.tipo 'eng')) }}
+					<div class="item-toggles">
+						<a class="item-toggle preparation-toggle {{#if m.system.preparada }}active{{/if}}" title="{{localize 'T20.SpellPrepPrepared'}}"><i class="fas fa-sun"></i></a>
+					</div>
+					{{/if}}
+					<div class="item-name flexrow rollable" data-label="{{m.name}}">
+						<div class="item-image" style="background-image: url('{{m.img}}')"></div>
+						<label>{{m.name}}</label>
+					</div>
+					<div class="item-type">{{m.labels.escola}}</div>
+					<div class="item-activation">{{t20-itemLabels m}}</div>
+					{{#if ../../../owner}}
+					{{> "tormenta20.actor-item-controls" item=m }}
+					{{/if}}
+				</li>
+				{{/each}}
+			</ul>
+			{{/if}}
+			{{else}}
+			<div class="spell-folder-empty"><em>Arraste magias para cá</em></div>
+			{{/each}}
+		</div>
+		{{/unless}}
+	</li>
+	{{/each}}
+
+	<li class="loose-spells-container">
+		<div class="loose-header"><i class="fas fa-list" style="padding: 4px 5px;"></i> Magias não agrupadas</div>
+		{{#each actor.looseMagiasPorCirculo as |circulo i|}}
+		{{#if circulo.spells.length}}
+		<div class="spell-circle-header">{{i}}º {{localize 'T20.SpellCircle'}} ({{circulo.custo}} {{localize 'T20.MP'}})</div>
+		<ul class="item-list" style="margin:0; padding:0;">
+			{{#each circulo.spells as |m|}}
+			<li class="item flexrow spell-item loose-spell" data-item-id="{{m._id}}" draggable="true">
+				{{#if (and ../../isPreparationCaster (ne m.system.tipo 'eng')) }}
+				<div class="item-toggles">
+					<a class="item-toggle preparation-toggle {{#if m.system.preparada }}active{{/if}}" title="{{localize 'T20.SpellPrepPrepared'}}"><i class="fas fa-sun"></i></a>
+				</div>
+				{{/if}}
+				<div class="item-name flexrow rollable" data-label="{{m.name}}">
+					<div class="item-image" style="background-image: url('{{m.img}}')"></div>
+					<label>{{m.name}}</label>
+				</div>
+				<div class="item-type">{{m.labels.escola}}</div>
+				<div class="item-activation">{{t20-itemLabels m}}</div>
+				{{#if ../../owner}}
+				{{> "tormenta20.actor-item-controls" item=m }}
+				{{/if}}
+			</li>
+			{{/each}}
+		</ul>
+		{{/if}}
+		{{else}}
+		<div class="spell-folder-empty"><em>Nenhuma magia solta</em></div>
+		{{/each}}
+	</li>
+</ul>
+
+{{else}}
+{{> "tormenta20.list-spells"}}
+{{/if}}
